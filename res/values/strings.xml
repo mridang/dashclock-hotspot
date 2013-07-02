@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="extension_name">Hotspot</string>
+    <string name="application_name">Dashclock Hotspot Extension</string>
+    <string name="extension_info">Displays information about your wireless hotspot.</string>
+
+</resources>
