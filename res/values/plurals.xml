@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <plurals name="connection">
+        <item quantity="zero">No devices connected</item>
+        <item quantity="one">Approximately %1$d device connected</item>
+        <item quantity="many">Approximately %1$d devices connected</item>
+    </plurals>
+    
+</resources>

@@ -90,7 +90,7 @@ public class HotspotWidget extends DashClockExtension {
 
 		super.onCreate();
 		Log.d("HotspotWidget", "Created");
-		BugSenseHandler.initAndStartSession(this, "17259500");
+		BugSenseHandler.initAndStartSession(this, "f0dd9352");
 
 	}
 
