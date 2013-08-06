@@ -16,6 +16,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.bugsense.trace.BugSenseHandler;
@@ -138,7 +139,6 @@ public class HotspotWidget extends DashClockExtension {
 
 									edtInformation.clickIntent(new Intent().setComponent(comp));
 									edtInformation.icon(R.drawable.ic_dashclock);
-									edtInformation.visible(true);
 
 									Log.d("HotspotWidget", "Counting connections through hotspot");
 									Scanner scaAddresses = new Scanner(new File("/proc/net/arp"));
@@ -159,6 +159,7 @@ public class HotspotWidget extends DashClockExtension {
 									Method getWifiApConfiguration = wifManager.getClass().getDeclaredMethod("getWifiApConfiguration");
 									edtInformation.expandedTitle(((WifiConfiguration) getWifiApConfiguration.invoke(wifManager)).SSID);
 									edtInformation.status(intConnections.toString());
+									edtInformation.visible(intConnections > 0 ? true : PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("always", true));
 
 									publishUpdate(edtInformation);
 

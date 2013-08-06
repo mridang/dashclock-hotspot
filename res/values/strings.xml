@@ -1,7 +1,10 @@
 <resources>
 
+    <string name="always">Always show</string>
     <string name="extension_name">Hotspot</string>
+    <string name="preferences_title">Hotspot Extension Settings</string>
     <string name="application_name">Dashclock Hotspot Extension</string>
     <string name="extension_info">Displays information about your wireless hotspot.</string>
+    <string name="summary">Extension will always show even when no devices are connected</string>
 
 </resources>
