@@ -109,11 +109,11 @@ public class HotspotWidget extends DashClockExtension {
 	 * (int)
 	 */
 	@Override
-	protected void onUpdateData(int arg0) {
+	protected void onUpdateData(int intReason) {
 
 		Log.d("HotspotWidget", "Fetching hotspot connectivity information");
 		final ExtensionData edtInformation = new ExtensionData();
-		edtInformation.visible(false);
+		setUpdateWhenScreenOn(false);
 
 		final WifiManager wifManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		try {
@@ -223,6 +223,7 @@ public class HotspotWidget extends DashClockExtension {
 			}
 
 		} catch (Exception e) {
+			edtInformation.visible(false);
 			Log.e("HotspotWidget", "Encountered an error", e);
 			BugSenseHandler.sendException(e);
 		}
