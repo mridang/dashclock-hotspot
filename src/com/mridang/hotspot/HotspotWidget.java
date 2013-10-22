@@ -157,7 +157,8 @@ public class HotspotWidget extends DashClockExtension {
 
 									edtInformation.expandedBody(getResources().getQuantityString(R.plurals.connection, intConnections, intConnections));
 									Method getWifiApConfiguration = wifManager.getClass().getDeclaredMethod("getWifiApConfiguration");
-									edtInformation.expandedTitle(((WifiConfiguration) getWifiApConfiguration.invoke(wifManager)).SSID);
+									WifiConfiguration wifSettings = (WifiConfiguration) getWifiApConfiguration.invoke(wifManager);
+									edtInformation.expandedTitle(wifSettings.SSID == null ? getString(R.string.ssid_missing) : wifSettings.SSID);
 									edtInformation.status(intConnections.toString());
 									edtInformation.visible(intConnections > 0 ? true : PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("always", true));
 

@@ -2,6 +2,7 @@
 
     <string name="always">Always show</string>
     <string name="extension_name">Hotspot</string>
+    <string name="ssid_missing">Unknown SSID</string>
     <string name="preferences_title">Hotspot Extension Settings</string>
     <string name="application_name">Dashclock Hotspot Extension</string>
     <string name="extension_info">Displays information about your wireless hotspot.</string>
