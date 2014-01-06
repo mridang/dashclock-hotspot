@@ -10,9 +10,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
@@ -99,7 +99,7 @@ public class HotspotWidget extends DashClockExtension {
 
 		super.onCreate();
 		Log.d("HotspotWidget", "Created");
-		BugSenseHandler.initAndStartSession(this, "f0dd9352");
+		BugSenseHandler.initAndStartSession(this, getString(R.string.bugsense));
 
 	}
 
@@ -200,10 +200,13 @@ public class HotspotWidget extends DashClockExtension {
 				} catch (NameNotFoundException e) {
 
 					Integer intExtensions = 0;
+				    Intent ittFilter = new Intent("com.google.android.apps.dashclock.Extension");
+				    String strPackage;
 
-					for (PackageInfo pkgPackage : mgrPackages.getInstalledPackages(0)) {
+				    for (ResolveInfo info : mgrPackages.queryIntentServices(ittFilter, 0)) {
 
-						intExtensions = intExtensions + (pkgPackage.applicationInfo.packageName.startsWith("com.mridang.") ? 1 : 0); 
+				    	strPackage = info.serviceInfo.applicationInfo.packageName;
+						intExtensions = intExtensions + (strPackage.startsWith("com.mridang.") ? 1 : 0); 
 
 					}
 
