@@ -6,7 +6,6 @@ import android.preference.PreferenceActivity;
 /*
  * This class is the activity which contains the preferences
  */
-@SuppressWarnings("deprecation")
 public class WidgetSettings extends PreferenceActivity {
 
 	/*
